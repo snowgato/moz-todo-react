@@ -31,6 +31,15 @@ function App(props) {
     }
   }
 
+  function editTask(id, newName) {
+    console.log("appel editTask depuis App.js, newName: " + newName);
+    tasks.forEach((task) => {
+      if (id == task.id) task.name = newName;
+    });
+    setTasks(tasks);
+    tasks.forEach((t) => console.log(t));
+  }
+
   function deleteTask(id) {
     const remainingTasks = tasks.filter((task) => id !== task.id);
     setTasks(remainingTasks);
@@ -61,6 +70,7 @@ function App(props) {
       key={task.id}
       toggleTaskCompleted={toggleTaskCompleted}
       deleteTask={deleteTask}
+      editTask={editTask}
       //toggleTaskCompleted={toggleTaskCompletedBug}
     />
   ));
