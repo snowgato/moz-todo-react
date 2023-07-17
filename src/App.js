@@ -36,7 +36,8 @@ function App(props) {
     tasks.forEach((task) => {
       if (id == task.id) task.name = newName;
     });
-    setTasks(tasks);
+    //setTasks([...tasks]);
+    setTasks(tasks); // le bug est là, pour le résoudre décommenter au dessus et commenter cette ligne
     tasks.forEach((t) => console.log(t));
   }
 
